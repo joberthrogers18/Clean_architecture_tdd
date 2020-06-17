@@ -15,5 +15,8 @@
     "git-commit-msg-linter": "^2.4.3",
     "typescript": "^3.9.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
+  }
 }
