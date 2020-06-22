@@ -15,8 +15,10 @@ module.exports = {
     SharedArrayBuffer: "readonly",
   },
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2019, // Allows for the parsing of modern ECMAScript features
+    project: "tsconfig.json",
     sourceType: "module",
+    createDefaultProgram: true
   },
   rules: {},
 };
