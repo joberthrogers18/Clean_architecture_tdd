@@ -1,10 +1,14 @@
 name: Lint
 
-on: push
+on: 
+  pull_request:
+    branches:
+      - master
+      - dev
 
 jobs:
-  run-linters:
-    name: Run linters
+  run-linters-and-tests:
+    name: Run linters and tests
     runs-on: ubuntu-latest
 
     steps:
@@ -20,10 +24,8 @@ jobs:
       - name: Install Node.js dependencies
         run: npm install
 
+      - name: Run tests
+        run: npm run test
+
       - name: Run linters
-        uses: samuelmeuli/lint-action@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          # Enable linters
-          eslint: true
-          prettier: true
+        run: npm run lint
