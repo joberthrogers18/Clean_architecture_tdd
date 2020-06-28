@@ -12,7 +12,7 @@ export class DbAddAccount implements AddAccount {
   async add (accountData: AddAccountModel): Promise<AccountModel> {
     const hashedPassword = await this.encrypter.encrypt(accountData.password)
     // it looks like the spread operator to objects
-    this.addAccountRepository.add(Object.assign({}, accountData, { password: hashedPassword }))
-    return new Promise(resolve => resolve(null))
+    const addedUserAccount = await this.addAccountRepository.add(Object.assign({}, accountData, { password: hashedPassword }))
+    return addedUserAccount
   }
 }
