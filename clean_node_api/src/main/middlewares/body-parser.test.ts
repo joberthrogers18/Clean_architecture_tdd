@@ -1,8 +1,9 @@
+// test requests to server
 import request from 'supertest'
 import app from '../config/app'
 
 describe('Body parser Middleware', () => {
-  test('', async () => {
+  test('Should get the correct values at body of request', async () => {
     app.post('/test_body_parser', (req, res) => {
       res.send(req.body)
     })
